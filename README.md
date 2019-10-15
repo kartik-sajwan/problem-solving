@@ -1,2 +1,2 @@
 # problem-solving
-Solutions to porgramming problems collected from various sources
+Solutions to porgramming problems collected from various sources.
