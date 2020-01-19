@@ -1,5 +1,3 @@
-
-
 #include<bits/stdc++.h>
 #include<cmath>
 #include<cstdio>
@@ -28,17 +26,3 @@ int main()	{
 	return 0;
 
 }
-/* */
-/* 
-
-int main()	{
-
-	int a;
-	cin>>a;
-	char res[1000];
-	itoa(a, res, 2);
-	cout<<res;
-	return 0;
-}
-
-*/
