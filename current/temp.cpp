@@ -14,24 +14,12 @@ int main()	{
 
 	cin >> t;
 	while(t--)	{
-		sum = 0;
-		cin >> c >> n;
-		bak_n = n;
-		//check feasibility of distributing chocolates
-		sum_n = (n*(n+1))/2;
-		if(sum_n > c)
-			cout << c << endl;
-		else {
-			diff = c - sum_n;
-			times = diff / n;
-			sum = sum_n + (n*times);
-			cout << c-sum << endl;
-		}
+		cin >> 
 
 	}
 	return 0;
 }
-/* */
+ /*  	*/
 /* 
 
 int main()	{
@@ -45,3 +33,5 @@ int main()	{
 }
 
 */
+
+
