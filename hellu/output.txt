@@ -1,0 +1,11 @@
+1
+2
+1
+2
+4
+5
+64
+4
+8
+4
+Hello C++ World from VS Code and the C++ extension! 
