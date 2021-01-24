@@ -1,38 +1,8 @@
+//https://leetcode.com/problems/two-sum/
 
 #include <bits/stdc++.h>
 
 using namespace std;
-
-bool increasingTriplet(vector<int>& nums)
-{
-	int value = 0, count = 0;
-	value = nums[nums.size() - 1];
-	for(int i = nums.size() - 2; i >= 0; --i)
-	{
-		if(nums[i] < value)
-		{
-			value = nums[i];
-			count++;
-		}
-	}
-
-	if(count >= 2) return true;
-
-	return false;
-}
-
-int expandAroundCenter(string s, int L, int R)
-{
-
-	while(L >= 0 && R <= s.size() && s[L] == s[R])
-	{
-		L--;
-		R++;
-	}
-	return R - L - 1;
-}
-string longestPalindrome(string s)
-{ }
 
 vector<int> twoSum(vector<int>& nums, int target)
 {
@@ -58,8 +28,8 @@ int main()
 {
 	vector<int> nums   = {2, 7, 11, 15};
 	int			target = 9;
-	//cout << increasingTriplet(nums);
 	vector<int> result = twoSum(nums, target);
+
 	for(auto it : result)
 	{
 		cout << it << "\n";
