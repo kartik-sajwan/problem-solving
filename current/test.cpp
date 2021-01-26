@@ -1,5 +1,5 @@
-#include <iostream>
 #include <bits/stdc++.h>
+#include <iostream>
 
 using namespace std;
 /*
@@ -487,4 +487,50 @@ int main()
 }
 */
 
+/*
 
+//Min Sum
+int Solution(vector<int> &A)
+{
+
+	map<int, int> hash;
+	int			  ans = 0, temp = 0;
+	int			  totalSum = 0, maxDiscount = 0, currentDiscount = 0;
+	for(auto it = A.begin(); it != A.end(); it++)
+	{
+		temp = *it;
+		totalSum += temp;
+		if(hash.find(temp) != hash.end()) { hash[temp]++; }
+		else
+		{
+			hash[temp] = 1;
+		}
+	}
+
+	for(auto it = hash.begin(); it != hash.end(); it++)
+	{
+		currentDiscount = (it->first) * (it->second);
+		maxDiscount		= max(currentDiscount, maxDiscount);
+	}
+
+	ans = totalSum - maxDiscount;
+	return ans;
+}
+
+int main()
+{
+
+	vector<int> input;
+	int			n, temp;
+	cin >> n;
+	for(int i = 0; i < n; i++)
+	{
+		cin >> temp;
+		input.push_back(temp);
+	}
+
+	cout << Solution(input);
+	return 0;
+}
+
+*/
