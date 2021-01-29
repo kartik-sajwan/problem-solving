@@ -1,5 +1,4 @@
 #include <bits/stdc++.h>
-#include <iostream>
 
 using namespace std;
 /*
@@ -488,7 +487,6 @@ int main()
 */
 
 /*
-
 //Min Sum
 int Solution(vector<int> &A)
 {
@@ -532,5 +530,44 @@ int main()
 	cout << Solution(input);
 	return 0;
 }
-
 */
+
+//Middle of the Linked List
+/**
+ * Definition for singly-linked list.
+ * struct ListNode {
+ *     int val;
+ *     ListNode *next;
+ *     ListNode() : val(0), next(nullptr) {}
+ *     ListNode(int x) : val(x), next(nullptr) {}
+ *     ListNode(int x, ListNode *next) : val(x), next(next) {}
+ * };
+ */
+class Solution
+{
+public:
+	ListNode* middleNode(ListNode* head)
+	{
+
+		ListNode dummy_head;
+		dummy_head.next	 = head;
+		ListNode* first	 = &dummy_head;
+		ListNode* second = &dummy_head;
+
+		while(second != NULL)
+		{
+			if(second->next != NULL)
+			{
+				second = second->next->next;
+				first  = first->next;
+			}
+			else
+			{
+				second = second->next;
+				first  = first->next;
+			}
+		}
+
+		return first;
+	}
+};
