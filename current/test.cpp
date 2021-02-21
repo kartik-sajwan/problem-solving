@@ -542,7 +542,7 @@ int main()
  *     ListNode(int x) : val(x), next(nullptr) {}
  *     ListNode(int x, ListNode *next) : val(x), next(next) {}
  * };
- */
+
 class Solution
 {
 public:
@@ -571,3 +571,35 @@ public:
 		return first;
 	}
 };
+*/
+
+//Check if given preorder traversal is valid BST
+string isValid(vector<int> a)
+{
+
+	stack<int> s;
+
+	int root = INT_MIN;
+	int n	 = a.size();
+	for(int i = 0; i < n; i++)
+	{
+
+		if(a[i] < root) return "NO";
+
+		while(!s.empty() && s.top() < a[i])
+		{
+			root = s.top();
+			s.pop();
+		}
+		s.push(a[i]);
+	}
+	return "YES";
+}
+
+int main()
+{
+
+	vector<int> a = {40, 30, 35, 80, 100};
+	cout << isValid(a);
+	return 0;
+}
