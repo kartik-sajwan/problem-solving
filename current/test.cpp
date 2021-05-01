@@ -86,7 +86,7 @@ public:
 		cout << "Print inside derived" << "\n";
 	}
 	void show(){
-		cout << "SHow from derived" << "\n";
+		cout << "Show from derived" << "\n";
 	}
 	
 };
@@ -103,6 +103,7 @@ class Complex{
 		return res;
 	}
 };
+
 int main() {
 	Base *ptr;
 	Derived *obj = new Derived();
@@ -573,6 +574,7 @@ public:
 };
 */
 
+/*
 //Check if given preorder traversal is valid BST
 string isValid(vector<int> a)
 {
@@ -601,5 +603,39 @@ int main()
 
 	vector<int> a = {40, 30, 35, 80, 100};
 	cout << isValid(a);
+	return 0;
+}
+
+*/
+
+/*		DSUBSSEQ SPOJ
+long long int dp[100000 + 10], last[200], mod = 1000000007;
+
+char str[100000 + 10];
+
+int solution()
+{
+
+	scanf("%s", str + 1);
+
+	int n = strlen(str + 1);
+
+	dp[0] = 1;
+
+	for(int i = 1; i <= n; i++)
+	{
+		dp[i] = (dp[i - 1] * 2) % mod;
+		if(last[str[i]]) dp[i] = (dp[i] - dp[last[str[i]] - 1] + mod) % mod;
+		last[str[i]] = i;
+	}
+	return dp[n];
+}
+
+*/
+
+int main()
+{
+
+	cout << solution();
 	return 0;
 }
