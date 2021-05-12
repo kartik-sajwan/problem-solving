@@ -265,9 +265,6 @@ int main(){
 
 /*
 
-#include<bits/stdc++.h>
-using namespace std;
-
 int main() 
 { 
 
@@ -608,7 +605,8 @@ int main()
 
 */
 
-/*		DSUBSSEQ SPOJ
+/*
+DSUBSSEQ SPOJ
 long long int dp[100000 + 10], last[200], mod = 1000000007;
 
 char str[100000 + 10];
@@ -631,11 +629,190 @@ int solution()
 	return dp[n];
 }
 
+int main()
+{
+	cout << solution();
+}
 */
+
+/*
+Longest Common Subsequence int lcs(string str1, string str2, int i, int j)
+{
+
+	if(i == 0 || j == 0) return 0;
+
+	if(str1[i] == str2[j]) { return (lcs(str1, str2, i - 1, j - 1) + 1); }
+	else
+	{
+		return max(lcs(str1, str2, i - 1, j), lcs(str1, str2, i, j - 1));
+	}
+}
+
+int lcsDP(string str1, string str2, int m, int n)
+{
+
+	vector<vector<int>> dp(m + 1, vector<int>(n + 1, 0));
+
+	if(m == 0 || n == 0) return 0;
+
+	for(int i = 1; i <= str1.size(); i++)
+	{
+		for(int j = 1; j <= str2.size(); j++)
+		{
+			if(str1[i - 1] == str2[j - 1]) { dp[i][j] = 1 + dp[i - 1][j - 1]; }
+			else
+			{
+				dp[i][j] = max(dp[i - 1][j], dp[i][j - 1]);
+			}
+		}
+		cout << endl;
+	}
+	for(int i = 0; i <= str1.size(); i++)
+	{
+		for(int j = 0; j <= str2.size(); j++)
+		{
+			cout << dp[i][j] << "\t";
+		}
+		cout << endl;
+	}
+	return dp[m][n];
+}
 
 int main()
 {
 
-	cout << solution();
+	string str1 = "AGGTAB";
+	string str2 = "GXTXAYB";
+	int	   i	= str1.size();
+	int	   j	= str2.size();
+	cout << lcsDP(str1, str2, i, j);
+
 	return 0;
 }
+*/
+
+/* Longest Increasing Subsequence
+
+int LIS(const vector<int>& nums)
+{
+	int			res = 0;
+	vector<int> dp(nums.size(), 1);
+	for(int i = 0; i < nums.size(); i++)
+	{
+		for(int j = 0; j < i; j++)
+		{
+			if(nums[j] > nums[i]) { dp[i] = max(dp[i], dp[j] + 1); }
+		}
+	}
+	for(int i = 0; i < nums.size(); i++)
+	{
+		res = max(res, dp[i]);
+	}
+	return res;
+}
+
+int main()
+{
+	vector<int> nums = {1, 4, 3, 4, 2, 3};
+	cout << LIS(nums);
+	return 0;
+}
+
+*/
+
+/*
+int longestsubstringwithoutrepeatingcharacters(string str)
+{
+	int last[200];
+	memset(last, 0, sizeof(last));
+	vector<int> dp(str.size(), 1);
+	last[str[0]] = 1;	 //set the first or index 0 at string in last found array
+	for(int i = 1; i < str.size(); i++)
+	{
+		if(last[str[i]])
+		{
+			dp[i]		 = max(dp[i - 1], i - (last[str[i]]) - 1);
+			last[str[i]] = i;
+		}
+		else
+		{
+			dp[i]		 = dp[i - 1] + 1;
+			last[str[i]] = i;
+		}
+	}
+	int res = 0;
+	for(int i = 0; i < dp.size(); i++)
+	{
+		res = max(res, dp[i]);
+	}
+	return res;
+}
+
+int main()
+{
+	string str = "geeksforgeeks";
+	cout << longestsubstringwithoutrepeatingcharacters(str);
+	return 0;
+}
+
+
+*/
+
+/* Collecting change problem 
+
+int change(vector<int>& coins, int amount)
+{
+
+	vector<int> dp(amount + 1, amount + 1);
+	dp[0] = 0;
+	for(int i = 0; i < dp.size(); i++)
+	{
+
+		for(int coin : coins)
+		{
+			if(i - coin < 0) continue;
+			dp[i] = min(dp[i], 1 + dp[i - coin]);
+		}
+	}
+	for(int i = 0; i < dp.size(); i++)
+	{
+		cout << dp[i] << "\t";
+	}
+	return (dp[amount] == amount + 1) ? -1 : dp[amount];
+}
+
+int main()
+{
+
+	vector<int> coins = {1, 2, 5};
+	int			amt;
+	cin >> amt;
+	cout << change(coins, amt);
+	return 0;
+}
+*/
+
+/*
+Definition of a binary tree node
+struct TreeNode{
+	int val;
+	TreeNode* left;
+	TreeNode* right;
+	TreeNode() : val(0), left(nullptr), right(nullptr) {}
+	TreeNode(int x): val(x), left(nullptr), right(nullptr) {}
+	TreeNode(int x, TreeNode* left, TreeNode* right) : val(x), left(left), right(right) {}
+};
+*/
+
+/*Definition of Linked list Node 
+
+struct ListNode
+{
+	int		  val;
+	ListNode* next;
+	ListNode(int x) : val(x), next(NULL)
+	{ }
+};
+
+*/
+
