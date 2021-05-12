@@ -816,3 +816,35 @@ struct ListNode
 
 */
 
+int tripletSumZero(vector<int>& nums)
+{
+	unordered_map<int, int> table;
+
+	for(auto it = nums.begin(); it != nums.end(); it++)
+	{
+		table[(*it)] = 1;
+	}
+	int count = 0;
+	for(int i = 0; i < nums.size(); i++)
+	{
+		for(int j = i + 1; j < nums.size(); j++)
+		{
+			int sum = ((nums[i] + nums[j]) * (-1));
+			if(table.find(sum) != table.end() && table.find(sum)->second == 1)
+			{
+				count++;
+				table.find(nums[i])->second = 0;
+				table.find(nums[j])->second = 0;
+				table.find(sum)->second		= 0;
+			}
+		}
+	}
+	return count;
+}
+
+int main()
+{
+	vector<int> nums = {1, -1, 2, 0, -2, 4};
+	cout << tripletSumZero(nums);
+	return 0;
+}
